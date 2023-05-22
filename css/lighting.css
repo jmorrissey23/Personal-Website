@@ -1,0 +1,416 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Barlow');
+
+body {
+    background-image: url("/pictures/website-background.jpg");
+}
+
+.container {
+    margin: auto;
+    border-radius: 15px;
+    width: 78%;
+    background-color: white !important;
+}
+
+.navbar {
+    height: 80px;
+    vertical-align: center;
+    border-bottom-style: double;
+}
+
+.navbar a {
+    float: right;
+    vertical-align: center;
+    transform: translateY(-83px);
+    font-size: 25px;
+}
+
+.navbar p {
+    transform: translateX(25px);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 45px;
+    padding-top: 20px;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: rgb(40, 143, 232);
+}
+
+.navbar #resume {
+    padding-right: 60px;
+}
+
+.navbar #home, #email {
+    padding-right: 50px;
+}
+
+.navbar #github {
+    padding-right: 50px;
+}
+
+.header {
+    margin-top: 20px;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 27px;
+    transform: translateY(-5px);
+}
+
+.intro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50px);
+    border-bottom-style: double;
+}
+
+#int {
+    font-size: 20px;
+    line-height: 30px;
+    width: 75%;
+    margin-bottom: 40px;
+}
+
+#nh, #wh, #ch {
+    transform: translateY(-50px);
+}
+
+.naive, .weighted, .camera {
+    transform: translateY(-50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-style: double;
+}
+
+.naive p, .weighted p, .camera p {
+    width: 50%;
+    font-size: 20px;
+    line-height: 30px;
+    padding-right: 25px;
+}
+
+.naive img, .weighted img, .camera img {
+    padding-right: 25px;
+    transform: translateY(-20px);
+}
+
+.summary p {
+    width: 75%;
+    display: block;
+    margin: auto;
+    font-size: 20px;
+    line-height: 30px;
+    transform: translateY(-20px);
+    padding-bottom: 10px;
+}
+
+.summary #text {
+    display: block;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.summary #pic {
+    display: block;
+    margin: auto;
+}
+
+.summary, .environment {
+    border-bottom-style: double;
+}
+
+.environment #description, .render #description {
+    width: 75%;
+    display: block;
+    margin: auto;
+    font-size: 20px;
+    line-height: 30px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+.environment img {
+    display: block;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.background img, .final-img img {
+    display: block;
+    margin: auto;
+}
+
+.background p, .final-img p {
+    font-size: 20px;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    transform: translateY(-20px);
+}
+
+.blender {
+    display: flex;
+    justify-content: center;
+}
+
+.blender-empty p {
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 105px;
+    transform: translateY(-10px);
+}
+
+.blender-empty img {
+    padding-right: 20px;
+}
+
+.blender-full p {
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 125px;
+    transform: translateY(-10px);
+}
+
+.blender-full img {
+    padding-left: 20px;
+}
+
+/* CSS styles for tablets */
+@media only screen and (max-width: 1100px) and (min-width: 600px) {
+    .container {
+        width: 85%;
+    }
+    .navbar p {
+        /* transform: translateX(25px); */
+        font-style: italic;
+        font-weight: bold;
+        font-size: 30px;
+        padding-top: 30px;
+    }
+
+    .navbar a {
+        float: right;
+        transform: translateY(-55px);
+        font-size: 18px;
+    }
+
+    .navbar #resume {
+        padding-right: 40px;
+    }
+
+    .navbar #email {
+        padding-right: 25px;
+    }
+
+    .navbar #github {
+        padding-right: 25px;
+    }
+
+    .navbar #home {
+        padding-right: 25px;
+    }
+
+    .header {
+        font-size: 25px;
+    }
+
+    .intro p {
+        padding-top: 30px;
+    }
+
+    .naive, .weighted, .camera {
+        display: inline;
+    }
+
+    .naive p, .weighted p, .camera p{
+        width: 80%;
+        display: block;
+        margin: auto;
+        transform: translateY(-30px);
+    }
+
+    .naive img, .weighted img, .camera img {
+        display: block;
+        padding-right: 0px;
+        margin: auto;
+        transform: translateY(0px);
+        padding-bottom: 60px;
+        /* width: 250px;
+        height: 250px; */
+    }
+
+    #wh {
+        border-top-style: double;
+        padding-top: 20px;
+    }
+
+    #ch {
+        border-top-style: double;
+        padding-top: 20px;
+    }
+
+    .summary #pic {
+        width: 600px;
+        height: 183px;
+    }
+
+    .summary #text {
+        width: 500px;
+        height: 50px;
+    }
+
+    
+    .blender-empty p {
+        padding-left: 43px;
+    }
+    
+    .blender-empty img,  .blender-full img {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .blender-full p {
+        padding-left: 80px;
+    }
+    
+   
+}
+  
+/* CSS styles for phones */
+@media only screen and (max-width: 750px) and (min-width: 0px) {
+    .container {
+        width: 95%;
+    }
+
+    .navbar p {
+        transform: translateX(15px);
+        font-style: italic;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 30px;
+    }
+
+    .navbar a {
+        float: right;
+        transform: translateY(-48px);
+        font-size: 16px;
+    }
+
+    .navbar #resume {
+        padding-right: 20px;
+    }
+
+    .navbar #email {
+        padding-right: 20px;
+    }
+
+    .navbar #github {
+        padding-right: 20px;
+    }
+
+    .navbar #home {
+        padding-right: 20px;
+    }
+
+    
+    .header {
+        font-size: 25px;
+    }
+
+    .intro p {
+        padding-top: 30px;
+    }
+
+    .naive, .weighted, .camera {
+        display: inline;
+    }
+
+    .naive p, .weighted p, .camera p{
+        width: 80%;
+        display: block;
+        margin: auto;
+        transform: translateY(-30px);
+    }
+
+    .naive img  {
+        display: block;
+        padding-right: 0px;
+        margin: auto;
+        transform: translateY(0px);
+        padding-bottom: 60px;
+        /* width: 250px;
+        height: 250px; */
+    }
+
+    .weighted img, .camera img {
+        display: block;
+        padding-right: 0px;
+        margin: auto;
+        transform: translateY(0px);
+        padding-bottom: 50px;
+        /* width: 250px;
+        height: 250px; */
+    }
+
+    #wh {
+        border-top-style: double;
+        padding-top: 20px;
+    }
+
+    #ch {
+        border-top-style: double;
+        padding-top: 20px;
+    }
+
+    .summary #pic {
+        width: 425px;
+        height: 130px;
+    }
+
+    .summary #text {
+        width: 425px;
+        height: 43px;
+    }
+
+    .environment img {
+        width: 425px;
+        height: 253px;
+    }
+
+    .blender {
+        display: inline;
+    }
+
+    .blender-empty, .blender-full {
+        display: block;
+        margin: auto;
+    }
+
+    .blender-empty img {
+        padding-right: 0px;
+        display: block;
+        margin: auto;
+    }
+
+    .blender-empty p, .blender-full p{
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+        transform: translateY(0px);
+    }
+
+    .blender-full img {
+        padding-left: 0px;
+        display: block;
+        margin: auto;
+    }
+}
