@@ -1,0 +1,285 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Barlow');
+
+
+/* CHANGE THE WIDTH TO MAKE RESPONSIVE!!!!!  */
+body {
+    background-image: url("pictures/website-background.jpg");
+}
+
+.container {
+    margin: auto;
+    border-radius: 15px;
+    width: 78%;
+    background-color: white !important;
+}
+
+.navbar {
+    height: 80px;
+    vertical-align: center;
+    border-bottom-style: double;
+}
+
+.navbar a {
+    float: right;
+    vertical-align: center;
+    transform: translateY(-83px);
+    font-size: 25px;
+}
+
+.navbar p {
+    transform: translateX(25px);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 45px;
+    padding-top: 20px;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: rgb(40, 143, 232);
+}
+
+.navbar #resume {
+    padding-right: 60px;
+}
+
+.navbar #home, #email {
+    padding-right: 50px;
+}
+
+.navbar #github {
+    padding-right: 50px;
+}
+
+.credits {
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 25px;
+    padding-top: 10px;
+    white-space: nowrap;
+}
+
+#i {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 20px;
+    line-height: 25px;
+    transform: translateY(-15px);
+}
+
+#text {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 20px;
+    line-height: 25px;
+    transform: translateY(-15px);
+}
+
+#header {
+    margin-top: 20px;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 27px;
+    transform: translateY(-5px);
+}
+
+.south-america, .zulu {
+    display: flex;
+    justify-content: center;
+}
+
+#one {
+    padding-right: 40px;
+}
+
+#two {
+    padding-left: 40px;
+}
+
+.three img{
+    display: block;
+    margin: auto;
+}
+
+#end {
+    margin-top: 20px;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+.conclusion {
+    /* transform: translateY(-115px); */
+    border-bottom-style: double;
+}
+
+.intro, .dijkstra, .stoer-wagner, .bfs, .visualization {
+    border-bottom-style: double;
+}
+
+/* CSS styles for tablets */
+@media only screen and (max-width: 1100px) and (min-width: 600px){
+    /* HEADER CSS */
+    .container {
+        width: 85%;
+    }
+    .navbar p {
+        /* transform: translateX(25px); */
+        font-style: italic;
+        font-weight: bold;
+        font-size: 30px;
+        padding-top: 30px;
+    }
+
+    .navbar a {
+        float: right;
+        transform: translateY(-55px);
+        font-size: 18px;
+    }
+
+    .navbar #resume {
+        padding-right: 40px;
+    }
+
+    .navbar #email {
+        padding-right: 25px;
+    }
+
+    .navbar #github {
+        padding-right: 25px;
+    }
+
+    .navbar #home {
+        padding-right: 25px;
+    }
+
+    .credits {
+        font-size: 18px;
+    }
+
+    .header {
+        font-size: 25px;
+        transform: translateX(-30px);
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .south-america, .zulu {
+        display: inline;
+    }
+    
+    .south-america #one {
+        display: block;
+        margin: auto;
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+
+    .south-america #two {
+        display: block;
+        margin: auto;
+        padding-left: 0px;
+    }
+
+    .zulu #one {
+        display: block;
+        margin: auto;
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+
+    .zulu #two {
+        display: block;
+        margin: auto;
+        padding-left: 0px;
+    }
+    
+}
+  
+/* CSS styles for phones */
+@media only screen and (max-width: 750px) and (min-width: 0px){
+
+    .container {
+        width: 95%;
+    }
+
+    .navbar p {
+        transform: translateX(15px);
+        font-style: italic;
+        font-weight: bold;
+        font-size: 22px;
+        padding-top: 30px;
+    }
+
+    .navbar a {
+        float: right;
+        transform: translateY(-45px);
+        font-size: 16px;
+    }
+
+    .credits {
+        white-space: normal;
+    }
+
+    .navbar #resume {
+        padding-right: 20px;
+    }
+
+    .navbar #email {
+        padding-right: 20px;
+    }
+
+    .navbar #github {
+        padding-right: 20px;
+    }
+
+    .navbar #home {
+        padding-right: 20px;
+    }
+
+    .header {
+        font-size: 25px;
+        font-style: italic;
+        font-weight: bold;
+        padding-bottom: 15px;
+    }
+
+    .south-america, .zulu {
+        display: inline;
+    }
+    
+    .south-america #one {
+        display: block;
+        margin: auto;
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+
+    .south-america #two {
+        display: block;
+        margin: auto;
+        padding-left: 0px;
+    }
+
+    .zulu #one {
+        display: block;
+        margin: auto;
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+
+    .zulu #two {
+        display: block;
+        margin: auto;
+        padding-left: 0px;
+    }
+}
+

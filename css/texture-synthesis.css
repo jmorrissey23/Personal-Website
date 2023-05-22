@@ -1,0 +1,414 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Barlow');
+
+body {
+    background-image: url("pictures/website-background.jpg");
+}
+
+.container {
+    margin: auto;
+    border-radius: 15px;
+    width: 78%;
+    background-color: white !important;
+}
+
+.navbar {
+    height: 80px;
+    vertical-align: center;
+    border-bottom-style: double;
+}
+
+.navbar a {
+    float: right;
+    vertical-align: center;
+    transform: translateY(-83px);
+    font-size: 25px;
+}
+
+.navbar p {
+    transform: translateX(40px);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 45px;
+    padding-top: 20px;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: rgb(40, 143, 232);
+}
+
+.navbar #resume {
+    padding-right: 60px;
+}
+
+.navbar #home, #email {
+    padding-right: 50px;
+}
+
+.navbar #github {
+    padding-right: 50px;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom-style: double;
+}
+
+.header {
+    margin-top: 20px;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 27px;
+    transform: translateY(-5px);
+}
+
+#int {
+    font-size: 20px;
+    line-height: 30px;
+    width: 75%;
+    transform: translateY(-35px);
+}
+
+.random, .overlap, .seam, .results {
+    border-bottom-style: double;
+}
+
+.random, .overlap, .seam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.random p, .overlap p, .seam p {
+    width: 50%;
+    font-size: 20px;
+    line-height: 30px;
+    padding-right: 10px;
+    padding-left: 25px;
+}
+
+.random img {
+    margin-bottom: 20px;
+}
+
+#rand-out {
+    padding-right: 20px;
+}
+
+.rand-images, .overlap-images, .seam-images {
+    display: flex;
+    justify-content: center;
+}
+
+.seam img {
+    margin-bottom: 30px;
+}
+
+.seam #rand-in {
+    transform: translateY(-4px);
+}
+
+.first, .second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rand-in {
+    padding-right: 15px;
+}
+
+.second {
+    margin-bottom: 40px;
+}
+
+.synthesis {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.synthesis p {
+    font-size: 20px;
+    line-height: 30px;
+    width: 75%;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+}
+
+.images p, .last p {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.input img {
+    padding-right: 20px;
+}
+
+.guidance img {
+    padding-left: 20px;
+}
+
+.input p {
+    transform: translateY(-20px);
+    padding-left: 100px;
+}
+
+.guidance p {
+    padding-left: 130px;
+    transform: translateY(-20px);
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+}
+
+.last img {
+    border-radius: 5px;
+}
+
+.last p {
+    padding-left: 100px;
+    transform: translateY(-10px);
+}
+
+/* CSS styles for tablets */
+@media only screen and (max-width: 1100px) and (min-width: 600px) {
+    /* HEADER CSS */
+    .container {
+        width: 85%;
+    }
+    .navbar p {
+        /* transform: translateX(25px); */
+        font-style: italic;
+        font-weight: bold;
+        font-size: 30px;
+        padding-top: 30px;
+    }
+
+    .navbar a {
+        float: right;
+        transform: translateY(-55px);
+        font-size: 18px;
+    }
+
+    .navbar #resume {
+        padding-right: 40px;
+    }
+
+    .navbar #email {
+        padding-right: 25px;
+    }
+
+    .navbar #github {
+        padding-right: 25px;
+    }
+
+    .navbar #home {
+        padding-right: 25px;
+    }
+
+    .header {
+        font-size: 25px;
+    }
+
+    #int {
+        font-size: 20px;
+        padding-top: 10px;
+    }
+
+    .random, .overlap, .seam {
+        display: inline;
+        border-bottom-style: none;
+    }
+
+    .random #description, .overlap #description, .seam #description {
+        width: 90%;
+        padding-top: 10px;
+        display: block;
+        margin: auto;
+    }
+
+    .random #rand-in {
+        padding-left: 0px;
+    }
+
+    .random #rand-out {
+        padding-right: 0px;
+    }
+
+    .rand-images, .overlap-images, .seam-images {
+        padding-top: 10px;
+    }
+
+    #oh, #sh, #ah {
+        border-top-style: double;
+        padding-top: 20px;
+    }
+
+    .synthesis #description {
+        width: 90%;
+        display: block;
+        margin: auto;
+    }
+
+    .first #gold-in {
+        width: 200px;
+        height: 120px;
+    }
+
+    .first #gold-out {
+        width: 240px;
+        height: 240px;
+    }
+
+    .second #tile-in {
+        width: 200px;
+        height: 200px;
+    }
+
+    .second #tile-out {
+        width: 240px;
+        height: 230px;
+    }
+}
+  
+/* CSS styles for phones */
+@media only screen and (max-width: 750px) and (min-width: 0px) {
+    .container {
+        width: 95%;
+    }
+
+    .navbar p {
+        transform: translateX(15px);
+        font-style: italic;
+        font-weight: bold;
+        font-size: 25px;
+        padding-top: 30px;
+    }
+
+    .navbar a {
+        float: right;
+        transform: translateY(-48px);
+        font-size: 16px;
+    }
+
+    .navbar #resume {
+        padding-right: 20px;
+    }
+
+    .navbar #email {
+        padding-right: 20px;
+    }
+
+    .navbar #github {
+        padding-right: 20px;
+    }
+
+    .navbar #home {
+        padding-right: 20px;
+    }
+
+    
+    .header {
+        font-size: 25px;
+    }
+
+    #int {
+        font-size: 20px;
+        padding-top: 10px;
+    }
+
+    .random, .overlap, .seam {
+        display: inline;
+        border-bottom-style: none;
+    }
+
+    .random #description, .overlap #description, .seam #description {
+        width: 90%;
+        padding-top: 10px;
+        display: block;
+        margin: auto;
+    }
+
+    .random #rand-in {
+        padding-left: 0px;
+    }
+
+    .random #rand-out {
+        padding-right: 0px;
+    }
+
+    .rand-images, .overlap-images, .seam-images {
+        padding-top: 10px;
+    }
+
+    .random img, .overlap img, .seam img {
+        width: 200px;
+        height: 200px;
+    }
+
+    #oh, #sh, #ah {
+        border-top-style: double;
+        padding-top: 20px;
+    }
+
+    .synthesis #description {
+        width: 90%;
+        display: block;
+        margin: auto;
+    }
+
+    .first #gold-in {
+        width: 200px;
+        height: 120px;
+    }
+
+    .first #gold-out {
+        width: 240px;
+        height: 240px;
+    }
+
+    .second #tile-in {
+        width: 200px;
+        height: 200px;
+    }
+
+    .second #tile-out {
+        width: 240px;
+        height: 230px;
+    }
+
+    .input img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .guidance img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .input p {
+        transform: translateY(-20px);
+        padding-left: 60px;
+    }
+    
+    .guidance p {
+        padding-left: 70px;
+        transform: translateY(-20px);
+    }
+}
+
