@@ -1,0 +1,78 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Barlow');
+
+body {
+    background-image: url("/pictures/website-background.jpg");
+}
+
+.container {
+    margin: auto;
+    border-radius: 15px;
+    width: 1000px;
+    background-color: white !important;
+}
+
+.navbar {
+    height: 80px;
+    vertical-align: center;
+    border-bottom-style: double;
+}
+
+.navbar a {
+    float: right;
+    vertical-align: center;
+    transform: translateY(-83px);
+    font-size: 25px;
+}
+
+.navbar p {
+    transform: translateX(25px);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 45px;
+    padding-top: 20px;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: rgb(40, 143, 232);
+}
+
+.navbar #resume {
+    padding-right: 60px;
+}
+
+.navbar #home, #email {
+    padding-right: 50px;
+}
+
+.navbar #github {
+    padding-right: 50px;
+}
+
+.credits {
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.intro {
+    display: flex;
+    width: 1000px;
+    height: 400px;
+    transform: translateY(-20px);
+}
+
+/* CSS styles for tablets */
+@media only screen and (max-width: 820px) {
+
+}
+  
+/* CSS styles for phones */
+@media only screen and (max-width: 480px) {
+
+}
