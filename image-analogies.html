@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="/css/image-analogies.css">
+        <link rel="icon" href="pictures/camera.png">
+        <title> Image Analogies </title>
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "navbar"> 
+                <p>
+                    Image Analogies
+                </p>
+
+                <a href = "CS Resume.pdf" id = "resume"> Resume </a>
+                <a href = mailto:"jrm15@illinois.edu" id = "email"> Contact </a>
+                <a href = "https://github.com/jmorrissey23" id = "github"> Github </a>
+                <a href = "index.html" id = "home"> Home </a>
+            </div>
+
+            <div class = "credits">
+                Developed with Kenny Kim, Sahil Agrawal, and Madhuparna Bhowmik
+            </div>
+
+            <div class = "intro">
+                <p id = "int">
+                    Image Analogies allows us to model any filter, linear or nonlinear, without knowing how the 
+                    filter is applied. All we need is three input images -- an unfiltered-filtered pair, and a third image
+                    that the filter will be applied to. These three images are modeled by A, A', and B in the figure to the right, respectively.
+                    Put more concisely, we want to return an image B' that is analagous to the image A'. This project and implementation were based off 
+                    of the research paper by Hertzman et. al., and can be found at this <a href = "https://mrl.cs.nyu.edu/publications/image-analogies/analogies-fullres.pdf"> 
+                    link </a>.
+                </p>
+
+                <img src = "pictures/Image Analogies Boats.png" width = "375" height = "375" id = "boats">
+
+            </div>
+
+            <br>
+            
+            <div class = "project-intro">
+                Implementation
+            </div>
+
+            <div class = "implementation">
+                <p id = "first">
+                    To achieve our results in image analogies, we first have to set up the gaussian pyramids of the 
+                    luminance channel for three images, A, A’ and B. In each level of the gaussian pyramid, we iterate through each pixel of an empty B’,
+                    the final output image, and determine the best pixel to fill in. The pseudocode for the CreateImageAnalogy 
+                    method is shown below.
+                </p>
+
+                <!-- 745 x 366 -->
+                <img src = "/pictures/IA pseudocode.png" width = "372" height = "183" id = "ia">
+
+                <p id = "second"> 
+                    We used two separate functions to determine the best pixel. The first is BestCoherenceMatch, 
+                    where we use neighborhood matching to find the best matching pixel from A. Neighborhood matching 
+                    works by taking into account the already synthesized pixels of B’, the corresponding pixels of A’, 
+                    a 5 x 5 neighborhood in A and B, and a 3x3 neighborhood in the coarser levels of A, A’, B, and B’. 
+                    We decided to use the luminance channel for our feature vectors because it allowed for a speedup in 
+                    finding B’, since we have to store one third of the channels. The second is BestApproximateMatch, 
+                    where we used an approximate-nearest-neighbor (ANN) search to determine the closest pixel in the current level of the gaussian pyramid. 
+                    In our implementation, we chose to use a KDtree from the sci-kit learn library to query through the feature vectors and find our approximate pixel. 
+                    Once the BestApproximateMatch and BestCoherenceMatch returned results, we compared the error for each pixel and chose the minimum of the two. 
+                    Pseudocode Shown Below. 
+                </p>
+
+                <!-- 585 x 240 -->
+                <img src = "/pictures/pseudocode.png" width = "446" height = "183" id = "bm"> 
+
+                <p id = "third">
+                    After looping through every level, we then took the luminance channel from the finest level of 
+                    the pyramid and copied over the I and Q channels from the original B image. This works since our
+                    eyes are more sensitive to luminance channel changes than to color difference channels changes.
+                </p>
+            </div>
+
+            <div class = "outro">
+                Results
+            </div>
+
+            <div class = "results">
+                <p id = "fourth">
+                    We had to make some design choices where the paper was vague. Initially instead of doing a brute
+                    force choice at the coarsest level and border of the image, we passed in an expected result from
+                    the paper to fill in pixels at the border. We also didn’t loop through the coarsest image in 
+                    CreateImageAnalogy. This allowed for faster runtimes and to produce more results, although we 
+                    finally managed to implement the brute force search as well which makes the method independent 
+                    of the expected result. All our results are using this method.
+
+                    <br> 
+
+                </p>
+
+                <p id = "fifth">
+                    Example results for an engraving filter:
+                </p>
+
+                <!-- 608 x 331 -->
+                <img src = "/pictures/engaving A.png" width = "619" height = "318" id = "r">
+
+                <!-- <br> -->
+
+                <!-- 611 x 322 -->
+                <!-- <img src = "/pictures/engraving B1.png" id = "r"> -->
+
+                <!-- 619 x 318 -->
+            
+                <img src = "/pictures/engraving B2.png" width = "619" height = "318" id = "r">
+
+                <p id = "fifth">
+                    Example results for a Lucian Freud filter:
+                </p>
+
+                <img src = "/pictures/freud input.png" width = "619" height = "318" id = "r">
+                <img src = "/pictures/freud output.png" width = "619" height = "318" id = "r">
+
+                <p id = "fifth">
+                    Example result for a water color filter:
+                </p>
+
+                <img src = "/pictures/watercolor input.png" width = "619" height = "318" id = "r">
+                <img src = "/pictures/watercolor output.png" width = "619" height = "318" id = "r">
+
+                <br>
+            </div>
+
+            <div class = "transfer">
+                Painting Without Paint
+            </div>
+
+            <div class = "explanation">
+                <p id = "fourth">
+                    Our main motivation for completing image analogies was to be able to mimic any artists' style and produce
+                    images that look like they had been painted by them. Although, we were able to capture texture with the 
+                    use of image analogies, we weren't able to capture color. Hence, we took two other group members' implementation 
+                    of <a href = "https://ieeexplore.ieee.org/abstract/document/946629" > <i> Color Transfer between Images</i> </a> (Reinhard et al.) and were able to reproduce the following image of 
+                    boats that captures the color and texture of a Vincent Van Gogh painting.
+                </p>
+
+                <p id = "fifth">
+                    Original Images:
+                </p>
+
+                <img src = "/pictures/davinci input.png" width = "619" height = "318" id = "r">
+
+                <img src = "pictures/boat solo.png" width = "315" height = "318"> 
+
+                <p id = "fifth">
+                    Outputted image with mimicked texture and color:
+                </p>
+
+                <img src = "/pictures/ult output.png" width = "315" height = "318">
+
+                <br>
+            </div>
+        </div>
+    </body>
+</html>

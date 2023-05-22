@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="/css/texture-synthesis.css">
+        <link rel="icon" href="/pictures/texture-icon.png">
+        <title> Image Quilting </title>
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "navbar"> 
+                <p>
+                    Image Quilting
+                </p>
+
+                <a href = "CS Resume.pdf" id = "resume"> Resume </a>
+                <a href = mailto:"jrm15@illinois.edu" id = "email"> Contact </a>
+                <a href = "https://github.com/jmorrissey23" id = "github"> Github </a>
+                <a href = "index.html" id = "home"> Home </a>
+            </div>
+
+            <!-- <div class = "credits">
+                Developed alone
+            </div> -->
+
+            <div class = "intro">
+                <p id = "int">
+                    This project explores various texture synthesis techniques and implements texture transfer. 
+                    Texture transfer is giving an object the appearance of having the same texture as a 
+                    sample while preserving its basic shape. Texture transfer is achieved by encouraging sampled patches to have 
+                    similar appearance to a given target image, as well as matching overlapping regions of already 
+                    sampled patches. For texture synthesis, the main idea is to sample patches and lay them down in overlapping patterns, such 
+                    that the overlapping regions are similar. This project is based on the <a href = "https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/papers/efros-siggraph01.pdf">
+                    SIGGRAPH 2001 paper </a> by Efros and Freeman.
+                </p>
+            </div>
+
+            <div class = "header">
+                Randomly Sampled Texture
+            </div>
+
+            <div class = "random">
+                <p id = "description">
+                    The first approach to texture synthesis is to randomly choose patches of a certain size. As shown in the image output image 
+                    to the right, this will lead to noticable overlap and seams, making it the worst of all the methods explored in this project.
+                </p>
+                <div class = "rand-images">
+                    <img src = "/pictures/rand sample in.png" width = "250" height = "250" id = "rand-in">
+                    <img src = "/pictures/rand sample out.png" width = "250" height = "250" id = "rand-out">
+                </div>
+            </div>
+
+            <div class = "header" id = "oh">
+                Overlapping Patches
+            </div>
+
+            <div class = "overlap">
+                <p id = "description">
+                    The logic behind this approach is to choose patches that minimize the ssd cost between overlaps in the output image.
+                    To do this we compute a cost image, where each pixels value is a weighted ssd (sum of squared difference) cost of choosing the patch centered at that pixel.
+                    We then define a parameter "tol" that tells us how many of the least cost patches to randomly choose from. Once we choose our patch, we simply copy the patch into
+                    the corresponding pixels in the output image. This produces better results than the first approach, although there are still some noticable seams.
+                </p>
+                <div class = "overlap-images">
+                    <img src = "/pictures/rand sample in.png" width = "250" height = "250" id = "rand-in">
+                    <img src = "/pictures/overlap out.png" width = "250" height = "250" id = "overlap-out">
+                </div>
+            </div>
+
+            <div class = "header" id = "sh">
+                Seam Finding
+            </div>
+
+            <div class = "seam">
+                <p id = "description">
+                    The seam finding approach has very similar logic to the overlap approach. Except now we use a shortest path algorithm to construct 
+                    masks for each direction of the overlap. We then apply the masks to take determine which pixels to take from each patch. This approach produces the 
+                    best results out of the three. The additional results below are using this method.
+                </p>
+                <div class = "seam-images">
+                    <img src = "/pictures/rand sample in.png" width = "250" height = "250" id = "rand-in">
+                    <img src = "/pictures/seam out.png" width = "250" height = "250" id = "seam-out">
+                </div>
+            </div>
+
+            <div class = "header" id = "ah">
+                Additional Quilting Results
+            </div>
+
+            <div class = "results">
+                <div class = "first">
+                    <!-- 451 x 302 -->
+                    <img src = "/pictures/gold in.png" id = "gold-in" width = "309" height = "206">
+                    <!-- 386 x 378 -->
+                    <img src = "/pictures/gold out.png" id = "gold-out" width = "350" height = "342">
+                </div>
+                <br>
+                <div class = "second">
+                    <!-- 309 x 299 -->
+                    <img src = "/pictures/tile in.png" id = "tile-in">
+                    <!-- 350 x 332 -->
+                    <img src = "/pictures/tile out.png" id = "tile-out">
+                </div>
+            </div>
+
+            <div class = "header">
+                Texture Transfer
+            </div>
+
+            <div class = "synthesis">
+                <p id = "description">
+                    As mentioned intially, texture transfer is giving an object the appearance of having the same texture as a 
+                    sample while preserving its basic shape. Texture transfer is achieved by encouraging sampled patches to have 
+                    similar appearance to a given target image, as well as matching overlapping regions of already 
+                    sampled patches. The implementaiton of texture transfer is very similar to seam carving. There is just an additonal 
+                    cost term in the SSD calculation to determine the weighting from the SSD of the guidance image and the SSD of the target image.
+                    Unfortunately, I ran into difficulties finding good images to apply the algorithm to.
+                </p>
+            </div>
+            <div class = "images">
+                <div class = "input">
+                    <img src = "/pictures/texture.png" width = "300" height="300">
+                    <p> Input Texture </p>
+                </div>
+                <div class = "guidance">
+                    <img src = "/pictures/guidance.png" width = "300" height="300">
+                    <p> Guidance Image </p>
+                </div>
+            </div>
+            <div class = "outer"> 
+                <div class = "last">
+                    <img src = "/pictures/Texture Synthesis.png" width = "300" height = "300">
+                    <p> Output Image </p>
+                </div>
+            </div>
+            <br>
+        </div>
+    </body>
+</html>
