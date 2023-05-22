@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/wikipedia.css">
+        <link rel="icon" href="pictures/wikipedia icon.png"">
+        <title> Wikipedia Analysis </title>
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "navbar"> 
+                <p>
+                    Wikipedia Analysis
+                </p>
+
+                <a href = "CS Resume.pdf" id = "resume"> Resume </a>
+                <a href = mailto:"jrm15@illinois.edu" id = "email"> Contact </a>
+                <a href = "https://github.com/jmorrissey23" id = "github"> Github </a>
+                <a href = "index.html" id = "home"> Home </a>
+            </div>
+
+            <div class = "credits">
+                Developed with Joe Tamualitis, Lev Sosani, and Siddhant Valanju
+            </div>
+
+            <div class = "intro">
+                <p id = "i">
+                    <br>
+                    The main motivation for this project was to examine the inter-connectedness of wikipedia articles. We used a <a href = " http://snap.stanford.edu/data/ "> dataset</a> produced by Stanford that modeled wikipedia articles as nodes in a 
+                    graph and the links between articles as edges. We implemented Dijkstra, Stoer-Wagner, and Breadth First Search to analyze the dataset. We also 
+                    created visualizations using a barebones graphics library. This project was completed using C++ and the repository can be accessed <a href = "https://github.com/jmorrissey23/cryptic"> here</a>. 
+                </p>
+            </div>
+
+            <p id = "header">
+                Dijkstras' Algorithm
+            </p>
+
+            <div class = "dijkstra">
+                <p id = "text">
+                    Dijkstras algorithm is a simple shortest path algorithm that we used to examine optimal distances between articles.
+                    Ultimately, we created two functions for the purpose of our analysis. One returned an integer representing the 
+                    shortest path weight and the other returned a vector containing the path actually traversed between the two nodes. 
+                    For the purpose of our work, the latter function (returning a vector), proved to be of far more sustinence, although 
+                    the conclusions of both were ultimately transitively explanatory of each other as illustrated in the conclusion.
+
+                    <br>
+                    <br>
+                    <b><i> Minimum Links Traversed </i></b>
+                    <br>
+
+                    This used the int function of dijkstras and was helpful in explaining the sheer level of connectivity throughout the 
+                    nodes of the graph. For example, a short traversal from an article title Viking to one titled Glass encountered a 
+                    staggering 181 links on its path of only 4 nodes.
+
+                    <br>
+                    <br>
+                    <b><i> Shortest Node Path </i></b>
+                    <br>
+
+                    This used the vector function of dijkstras and was remarkable for understanding just how easy it was to connect any 
+                    article in the graph. We hypothesized needing large traversals of 20+ nodes to connect seemingly unrelated topics but
+                    our findings put connectivity distance into a new astounding perspective. We found that we were able to connect 
+                    (arbitrarily) unrelated articles with a path of no greater than <b> 5 nodes </b>.
+                </p>
+            </div>
+
+            <p id = "header">
+                Stoer-Wagner
+            </p>
+
+            <div class = "stoer-wagner">
+                <p id = "text">
+                    Our primary idea behind utilizing Stoer-Wagner in our analysis was to be able to find to minimum cut edges that
+                    could potentially illustrate the most signifigant links in the entire graph. We hoped that this finding would 
+                    allude to especially important articles that played a massive role in connecting a vast number of other articles.
+
+                    <br>
+                    <br>
+                    <b><i> Our Shortcoming </i></b>
+                    <br>
+
+                    We fell short of achieving our goal in using this algorithm on our dataset due to a simple oversight in its actual
+                    runtime. Our implementation of Stoer-Wagner's minimum cut algorithm has a runtime of O(|V|^3), which isn't a daunting
+                    runtime on a graph of around 100 nodes persay. However, our graph's primary connected component contains over 4000
+                    nodes, which means that Stoer-Wagner would have taken over <b> 64,000,000,000 </b> (64 billion!) iterations to complete. Our 
+                    virtual machine was simply not cut out for this task, and as a result, we felt short of actually being able to use it in 
+                    the work of our analysis.
+                </p>
+            </div>
+
+            <p id = "header">
+                Breadth First Search
+            </p>
+
+            <div class = "bfs">
+                <p id = "text">
+                    We used BFS as a means to understand underlying connectivity by measuring the size of the graph's components. 
+                    It didn't play a role in helping us see how individual pages connected to others, but rather, served as a tool
+                     to see the span of connections starting from any one specific article. Our results were substantial, and we found 
+                     that of the 4604 nodes in our dataset, <b> 4588 </b> were found to be in a single connected component.
+                </p>
+            </div>
+
+            <p id = "header">
+                Visualization
+            </p>
+
+            <div class = "visualization">
+                <p id = "text">
+                    On top of the three algorithms, we created gifs and images to visualize our findings. Unfortunately,
+                    we weren't able to include as many nodes in our traversals as we would have liked to due to limitations in our
+                    machines and the size of the dataset. As shown further below, we had to limit it to only 100 nodes.
+
+                    <br> 
+                    <br>
+                    Here's what the degree of <i> South America </i> looks like. Note the radius of each drawn node is based off its degree.
+                </p>
+                
+                
+                <div class = "south-america">
+                    <img src = "pictures/south america.gif" width = "400" height = "400" id = "one">
+                    <img src = "pictures/still south america.png" width = "400" height = "400" id = "two">
+                </div>
+
+                <!-- <p id = "text">
+                    Here's an image that'll put the size of 4604 nodes into perspective:
+                </p> -->
+
+                <!-- <img src = "/pictures/total nodes.png" width = "500" height = "500"> -->
+
+                <br>
+
+                <p id = "text">
+                    This is what the traversal of the first 100 nodes of BFS starting on Zulu looks like:
+                </p>
+
+                <div class = "zulu">
+                    <img src = "pictures/zulu traversal.gif" width = "400" height = "400" id = "one">
+                    <img src = "pictures/zulu traversal still.png" width = "400" height = "400" id = "two">
+                </div>
+
+                <br> 
+
+                <p id = "text">
+                    And this is what the traversal looks like on the mere 3 nodes found in the component of Directdebit:
+                </p>
+
+                <div class = "three">
+                    <img src = "pictures/triple.gif" width = "400" height = "350">
+                </div>
+            </div>
+
+            <p id = "end">
+                Conclusion
+            </p>
+
+            <div class = "conclusion">
+                <p id = "text">
+                    Ultimately, we were able to come to the conclusion that wikipedia articles
+                    are very connected. Our most substantive proof of this is found from the usage of 
+                    BFS in measuring the size of connected components. When it's taken into account that a 
+                    staggering 99.65% percent of nodes can be found in one component, it becomes clear that 
+                    these articles are almost all connected in some form or another. The articles that lie in 
+                    the remaining 0.35% are ones that either have no links contained within them at all or link 
+                    to articles that are extremely specific and don't have any branches (i.e Directdebit). 
+                    Alongside BFS, Dijkstra's path finding algorithm helped us see that these articles were not 
+                    connected by an overwhelmingly large distance, despite the size of their components. As 
+                    described above, we found that we could connect any two articles (within a component) by 
+                    going through no more than 5 links. This is especially remarkable when considering just how 
+                    unrelated some of these articles are in nature.
+                </p>
+            </div>
+            
+        </div>
+    </body>
+</html>

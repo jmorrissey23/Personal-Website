@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/lighting.css">
+        <link rel="icon" href="pictures/lightbulb-icon.png">
+        <title> 3-D Rendering </title>
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "navbar"> 
+                <p>
+                    3-D Rendering 
+                </p>
+
+                <a href = "CS Resume.pdf" id = "resume"> Resume </a>
+                <a href = mailto:"jrm15@illinois.edu" id = "email"> Contact </a>
+                <a href = "https://github.com/jmorrissey23" id = "github"> Github </a>
+                <a href = "index.html" id = "home"> Home </a>
+            </div>
+
+            <!-- <div class = "credits">
+                Developed alone
+            </div> -->
+
+            <div class = "intro">
+                <p id = "int">
+                    This project explores how one can use image-based lighting to synthetically insert
+                    a 3D object into a scene. One way to relight an object is to capture an 360 degree panoramic 
+                    (omnidirectional) HDR photograph of a scene, which provides lighting information from all angles
+                    incident to the camera (hence the term image-based lighting). This is accomplished using a spherical mirror in this project. A normal 
+                    camera cannot fully capture the relative scale of a scene's lighting due to the limitations of floating point numbers. This project implements
+                    three different approaches in creating an HDR image that can accuarately capture the scale of a scene's lighting. After merging the captured LDR images into
+                    an HDR image, we can then create and use an environment map to render a 3D object into the original scene using Blender. 
+                    The LDR images were captured using exposure times of 1/16, 1/64, and 1/256 seconds.
+                </p>
+            </div>
+
+            <div class = "header" id = "nh">
+                Naive LDR Merging
+            </div>
+
+            <div class = "naive">
+                <p id = "description">
+                    The first and simplest approach is to standardize each LDR as if it had been exposed for one second. This is accomplished by dividing each
+                    images by its respective exposure time. The images can be merged into an LDR image by simply averaging each image over the rgb channels. Although simple
+                    and easy to implement, the outleirs can easily dominate when taking the average.
+                </p>
+                <div class = "naive-img">
+                    <img src = "pictures/naive ldr.png" width = "300" height= "300">
+                </div>
+            </div>
+
+            <div class = "header" id = "wh">
+                Weighted LDR Merging
+            </div>
+
+            <div class = "weighted">
+                <p id = "description">
+                    The only difference between naive LDR merging and weighted LDR merging is how the average is taken. In this approach,
+                    higher weights are assigned to medium values and lower weights are assigned to outliers. This approach tries to solve the 
+                    issue from naive LDR merging but clearly, again, we are not able to capture the full range of the image.
+                </p>
+                <div class = "weighted-img">
+                    <img src = "pictures/weighted ldr.png" width = "300" height="300">
+                </div>
+            </div>
+
+            <div class = "header" id = "ch">
+                Calibrated LDR Merging
+            </div>
+
+            <div class = "camera">
+                <p id = "description">
+                    In practice, intensity is a non-linear function of exposure both due to clipping and due to the camera response function, 
+                    which for most cameras compresses very dark and very bright exposure readings into a smaller range of intensity values. 
+                    To convert pixel values to true radiance values, we need to estimate this response function. This <a href = "https://www.pauldebevec.com/Research/HDR/debevec-siggraph97.pdf">paper</a> outlines how
+                    to accomplish this, although the implementation of the response function was provided to me. This approach clearly produces the best results.
+                </p>
+                <img src = "pictures/calib ldr.png" width = "300" height = "300">
+            </div>
+
+            <div class = "header" id = "ch">
+                Approach Summary
+            </div>
+
+            <div class = "summary">
+                <p id = "description">
+                    The following figure shows the log range and RMS error. Clearly, the range went up and RMS 
+                    error went down for each progressive method, with the calibrated approach performing the best.
+                </p>
+
+                <!-- 1182 x 361 -->
+                <img src = "pictures/picture summary.png" id = "pic" width = "700" height = "213">
+
+                <!-- 968 x 116 -->
+                <img src = "pictures/approach summary.png" id = "text" width = "500" height = "50">
+            </div>
+
+            <div class = "header" id = "eh">
+                Environment Map and Panoramic Transform
+            </div>
+
+            <div class = "environment">
+                <p id = "description">
+                    In order to use blender and synthetically insert a 3D object into a scene, we need to create 
+                    a panoramic environment map. To perform the transformation, we need to figure out the mapping between 
+                    the mirrored sphere domain and the equirectangular domain. We can calculate the normals of the sphere (N) 
+                    and assume the viewing direction (V) is constant. We then calculate reflection vectors with R = V - 2 * dot(V,N) 
+                    * N, which is the direction that light is incoming from the world to the camera after bouncing off the sphere. 
+                    The reflection vectors can then be converted to spherical coordinates by providing the latitude and longitude 
+                    (phi and theta) of the given pixel (fixing the distance to the origin, r, to be 1). The code for converting reflection 
+                    vectors to the equirectangular domain was provided to me.
+                </p>
+                <!-- 481 x 287 -->
+                <img src = "pictures/Environment Map.png">
+            </div>
+
+            <div class = "header">
+                3D Rendering
+            </div>
+
+            <div class = "render">
+                <p id = "description">
+                    Using Blender and the environment map from the previous section, we can now render a 
+                    3D object into a scene. We will create an object mask and apply M*R + (1-M)*I + (1-M)*(R-E)*c to get the final 
+                    composite. In the equation, let R be the rendered image with objects, E be the rendered image without objects, 
+                    M be the object mask, and I be the background image. C is a constant that changes the shadow effect.
+                </p>
+
+                <div class = "background">
+                    <img src = "pictures/background_image.jpg" width = "400" height = "400">
+                    <br>
+                    <p>
+                        Background Image
+                    </p>
+                </div>
+
+                <div class = "blender">
+                    <div class = "blender-empty">
+                        <img src = "pictures/rendered_geomertry.png" width = "400" height = "400">
+                        <p> Rendering Without Objects</p>
+                    </div>
+
+                    <div class = "blender-full">
+                        <img src = "pictures/rendered_with_objects.png"  width = "400" height = "400">
+                        <p> Rendering with Objects </p>
+                    </div>
+                </div>
+
+                <div class = "final-img">
+                    <img src = "pictures/rendered-objects.png" width = "400" height = "400">
+                    <br>
+                    <p>
+                        Final Composited Image
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
