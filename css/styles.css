@@ -1,10 +1,6 @@
 /* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Barlow');
 
-body {
-    background-image: url("/pictures/website-background.jpg");
-}
-
 .container {
     margin: auto;
     border-radius: 15px;
