@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow');
 
 body {
-/*     background-image: url("../pictures/website-background.jpg"); */
+    background-image: url("../pictures/website-background.jpg");
 }
 
 .container {
@@ -87,12 +87,19 @@ a:hover {
 }
 
 /* PROJECT SECTION CSS */
-.project1, .project2,.project3,.project4 {
+.project1, .project2,.project3 {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     border-bottom-style: double;
+}
+
+.project4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 #description {
@@ -153,7 +160,6 @@ a:hover {
     }
 
     .about p {
-        /* transform: translateX(25px); */
         font-style: italic;
         font-weight: bold;
         font-size: 40px;
@@ -162,8 +168,8 @@ a:hover {
 
     .about a {
         float: right;
-        transform: translateY(-70px);
-        font-size: 20px;
+        transform: translateY(-75px);
+        font-size: 28px;
     }
 
     .about #resume {
@@ -212,41 +218,63 @@ a:hover {
         width: 95%;
     }
 
+    /* ABOUT ME HEADER */ 
     .about p {
-        transform: translateX(45px);
+        transform: translateX(0px);
+        text-align: center;
         font-style: italic;
         font-weight: bold;
-        font-size: 30px;
-        padding-top: 30px;
+        font-size: 35px;
+        padding-top: 0px;
+        width: 100%;
+        height: 15px;
     }
 
-    .about a {
-        float: right;
-        transform: translateY(-55px);
-        font-size: 18px;
-    }
-
-    .about #resume {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .about #github {
-        padding-right: 15px;
-    }
-
-    #description, #description-last {
-        font-size: 20px;
-        padding-left: 10px;
-    }
-    #ex, #exb, #ex-last {
-        width: 150px;
-        height: 150px;
-        transform: translateX(-15px);
+    .about{
+        text-align: center;
     }
 
     #bio {
-        font-size: 18px;
+        font-size: 20px;
+        text-align: center;
+        width: 90%;
+    }
+
+    /* GitHub, Contact, and Resume header hyperlinks */
+    .about a {
+        transform: translateY(-20px);
+        font-size: 23px;
+        text-align: center;
+        float: none;
+    }
+
+    .about #resume {
+        padding-left: 0px;
+        padding-right: 50px;
+    }
+
+    .about #github {
+        padding-right: 0px;
+        padding-left: 50px;
+    }
+
+    /* Project description */
+    #description, #description-last {
+        font-size: 20px;
+        width: 80%;
+        padding-right: 0px;
+    }
+    
+    .project1, .project2, .project3, .project4 {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    /* Project pictures */
+    #ex, #exb, #ex-last {
+        width: 250px;
+        height: 250px;
+        transform: translateX(0px);
     }
 
     #ex, #exb {
@@ -262,6 +290,7 @@ a:hover {
         font-style: italic;
         font-weight: bold;
         padding-bottom: 15px;
-        padding-left: 20px;
+        padding-left: 0px;
+        text-align: center;
     }
 }
