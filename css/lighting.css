@@ -1,9 +1,6 @@
 /* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Barlow');
 
-body {
-/*     background-image: url("../pictures/website-background.jpg"); */
-}
 
 .container {
     margin: auto;
@@ -199,8 +196,8 @@ a:hover {
 
     .navbar a {
         float: right;
-        transform: translateY(-55px);
-        font-size: 18px;
+        transform: translateY(-58px);
+        font-size: 22px;
     }
 
     .navbar #resume {
@@ -291,18 +288,26 @@ a:hover {
         width: 95%;
     }
 
+    .navbar {
+        text-align: center;
+    }
+
     .navbar p {
-        transform: translateX(15px);
+        transform: translateX(0px);
+        text-align: center;
+        width: 100%;
         font-style: italic;
         font-weight: bold;
-        font-size: 25px;
-        padding-top: 30px;
+        font-size: 35px;
+        padding-top: 0px;
+        height: 15px;
     }
 
     .navbar a {
-        float: right;
-        transform: translateY(-48px);
-        font-size: 16px;
+        transform: translateY(0px);
+        font-size: 20px;
+        text-align: center;
+        float: none;
     }
 
     .navbar #resume {
@@ -318,7 +323,7 @@ a:hover {
     }
 
     .navbar #home {
-        padding-right: 20px;
+        padding-right: 0px;
     }
 
     
@@ -328,6 +333,24 @@ a:hover {
 
     .intro p {
         padding-top: 30px;
+        width: 90%;
+    }
+
+    .intro {
+        transform: translateY(-29px);
+        text-align: center;
+    }
+
+    .header {
+        text-align: center;
+        padding-left: 0px;
+    }
+
+    #description {
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%;
     }
 
     .naive, .weighted, .camera {
@@ -372,18 +395,18 @@ a:hover {
     }
 
     .summary #pic {
-        width: 425px;
-        height: 130px;
+        width: 325px;
+        height: 100px;
     }
 
     .summary #text {
-        width: 425px;
-        height: 43px;
+        width: 325px;
+        height: 45px;
     }
 
     .environment img {
-        width: 425px;
-        height: 253px;
+        width: 325px;
+        height: 180px;
     }
 
     .blender {
@@ -395,10 +418,17 @@ a:hover {
         margin: auto;
     }
 
+    .background img, .final-img img {
+        width: 325px;
+        height: 325px;
+    }
+
     .blender-empty img {
         padding-right: 0px;
         display: block;
         margin: auto;
+        width: 325px;
+        height: 325px;
     }
 
     .blender-empty p, .blender-full p{
@@ -412,5 +442,7 @@ a:hover {
         padding-left: 0px;
         display: block;
         margin: auto;
+        width: 325px;
+        height: 325px;
     }
 }
